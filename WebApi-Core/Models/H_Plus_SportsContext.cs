@@ -27,7 +27,7 @@ namespace WebApi_Core.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer("Server=DESKTOP-DR8C3OD\\SQLSERVER;Initial Catalog=H_Plus_Sports;Integrated Security=True;Trusted_Connection=True;");
+                
             }
         }
 

@@ -24,7 +24,7 @@ namespace WebApi_Core.Repository
 
         public async Task<Customer> DeleteAsync(int id)
         {
-            var  Customer = await _context.Customer.SingleAsync(a => a.CustomerId == id);
+            var Customer = await _context.Customer.SingleAsync(a => a.CustomerId == id);
             _context.Customer.Remove(Customer);
             await _context.SaveChangesAsync();
             return Customer;
@@ -33,15 +33,16 @@ namespace WebApi_Core.Repository
         public async Task<bool> Exist(int id)
         {
             return await _context.Customer.AnyAsync(c => c.CustomerId == id);
-            
+
         }
 
-        public Task<Customer> Find(int id)
+        public async Task<Customer> Find(int id)
         {
-            _context.Customer.Update(Customer customer;)
+            return await _context.Customer.Include(customer => customer.Order).SingleOrDefaultAsync(a => a.CustomerId == id);
+            //return await _context.Customer.Include(customer => customer.CustomerId == id).SingleOrDefaultAsync();
         }
 
-        public IEnumerable<Customer> GetAll() 
+        public IEnumerable<Customer> GetAll()
         {
             return _context.Customer;
         }

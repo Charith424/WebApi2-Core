@@ -9,7 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApi_Core.IContracts;
 using WebApi_Core.Models;
+using WebApi_Core.Repository;
 
 namespace WebApi_Core
 {
@@ -25,8 +27,10 @@ namespace WebApi_Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Add dependency Injection To the container
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddMvc();
-            var ConnectionString = "Server=DESKTOP-DR8C3OD\\SQLSERVER;Initial Catalog=H_Plus_Sports;Integrated Security=True;Trusted_Connection=True;";
+            var ConnectionString = "";
             services.AddDbContext<H_Plus_SportsContext>(options => options.UseSqlServer(ConnectionString));
         }
 
