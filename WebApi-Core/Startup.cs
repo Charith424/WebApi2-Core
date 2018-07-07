@@ -26,7 +26,7 @@ namespace WebApi_Core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var ConnectionString = "Server=DESKTOP-DR8C3OD\\SQLSERVER;Initial Catalog=H_Plus_Sports;Integrated Security=True;Trusted_Connection=True;";
+            var ConnectionString = "Server=you Connection String Here";
             services.AddDbContext<H_Plus_SportsContext>(options => options.UseSqlServer(ConnectionString));
         }
 
